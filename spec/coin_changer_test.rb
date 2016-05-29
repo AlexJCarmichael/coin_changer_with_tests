@@ -11,4 +11,10 @@ class CoinChangerTest < Minitest::Test
     changer = coins(1)
     assert(changer)
   end
+
+  def test_returns_pennies
+    assert_equal([1], coins(1).makes_proper_change)
+    assert_equal([1,1], coins(2).makes_proper_change)
+    assert_equal([1,1,1], coins(3).makes_proper_change)
+  end
 end
