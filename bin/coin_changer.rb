@@ -3,30 +3,16 @@ class CoinChanger
   def initialize(change)
     @change = change
     @purse = []
+    @coins = [25,10,5,1]
+    @coins.each do |coin|
+      makes_proper_change(coin)
+    end
   end
 
-  def makes_proper_change
-    if @change >=25
-      quarters = @change/25
-      quarters.times do
-        @purse << 25
-        @change -=25
-      end
+  def makes_proper_change(coin)
+    (@change/coin).times do
+      @purse << coin
+      @change -= coin
     end
-    if @change >= 10
-      dimes = @change/10
-      dimes.times do
-        @purse << 10
-        @change -= 10
-      end
-    end
-    if @change >= 5
-      @purse << 5
-      @change -= 5
-    end
-      @change.times do
-        @purse << 1
-      end
-    @purse
   end
 end
