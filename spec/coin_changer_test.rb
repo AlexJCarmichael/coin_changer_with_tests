@@ -17,4 +17,10 @@ class CoinChangerTest < Minitest::Test
     assert_equal([1,1], coins(2).makes_proper_change)
     assert_equal([1,1,1], coins(3).makes_proper_change)
   end
+
+  def test_returns_nickles
+    assert_equal([5], coins(5).makes_proper_change)
+    assert_equal([5,1], coins(6).makes_proper_change)
+    assert_equal([5,1,1], coins(7).makes_proper_change)
+  end
 end
