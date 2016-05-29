@@ -30,4 +30,11 @@ class CoinChangerTest < Minitest::Test
     assert_equal([10,5,1,1], coins(17).makes_proper_change)
     assert_equal([10,10], coins(20).makes_proper_change)
   end
+
+  def test_returns_quartes
+    assert_equal([25], coins(25).makes_proper_change)
+    assert_equal([25,10,5,1,1], coins(42).makes_proper_change)
+    assert_equal([25,25], coins(50).makes_proper_change)
+    assert_equal([25,25,25,10,5,1,1,1,1], coins(94).makes_proper_change)
+  end
 end

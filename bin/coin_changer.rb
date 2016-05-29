@@ -6,6 +6,13 @@ class CoinChanger
   end
 
   def makes_proper_change
+    if @change >=25
+      quarters = @change/25
+      quarters.times do
+        @purse << 25
+        @change -=25
+      end
+    end
     if @change >= 10
       dimes = @change/10
       dimes.times do
